@@ -95,7 +95,6 @@
             transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
-        /* Sound equalizer animation */
         .eq-bar {
             width: 3px;
             background-color: #F59E0B;
@@ -148,7 +147,7 @@
 
             <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-amber-50 border border-amber-200/80 text-amber-700 text-xs font-semibold tracking-wider uppercase pulse-glow">
                 <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
-                <span>SYSTEM NOTICE • OVERDUE DELIVERY ☀️</span>
+                <span>SYSTEM NOTICE • OVERDUE DELIVERY</span>
             </div>
 
             <div class="space-y-2">
@@ -362,18 +361,16 @@
                 }
             }
 
-            // Synth Tone generator for sound FX and music box melody
             function playTone(freq, type = 'sine', duration = 0.3, gainVal = 0.15) {
                 if (!soundEnabled || !audioCtx) return;
                 try {
                     const osc = audioCtx.createOscillator();
-                    const osc2 = audioCtx.createOscillator(); // Harmonic layer for warmth
+                    const osc2 = audioCtx.createOscillator(); 
                     const gain = audioCtx.createGain();
                     
                     osc.type = type;
                     osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
 
-                    // Add soft warm octave overtone
                     osc2.type = 'sine';
                     osc2.frequency.setValueAtTime(freq * 2, audioCtx.currentTime);
                     
@@ -448,14 +445,12 @@
                     const tid = setTimeout(() => {
                         if (!isSongPlaying) return;
                         playTone(item.note, 'sine', item.duration, 0.2);
-                        
-                        // Spawn musical note particle on canvas
+                  
                         spawnMusicNote();
                     }, item.delay * speedMultiplier);
                     songTimeoutIds.push(tid);
                 });
 
-                // Auto-stop when completed
                 const totalDuration = (16.7 + 1.8) * speedMultiplier;
                 const endTid = setTimeout(() => {
                     if (isSongPlaying) {
@@ -507,7 +502,6 @@
                 playTone(320 + Math.random() * 200, 'triangle', 0.1, 0.08);
             }
 
-            // Song toggle button listener
             const songToggle = document.getElementById('songToggle');
             songToggle.addEventListener('click', () => {
                 if (isSongPlaying) {
@@ -517,7 +511,6 @@
                 }
             });
 
-            // Global sound toggle
             const soundToggle = document.getElementById('soundToggle');
             const soundOnIcon = document.getElementById('soundOnIcon');
             const soundOffIcon = document.getElementById('soundOffIcon');
@@ -728,13 +721,11 @@
                 candleStatusText.classList.add('text-amber-600', 'font-semibold');
                 candleFeedback.classList.remove('hidden');
 
-                // Auto play birthday song when candle is blown!
                 setTimeout(() => {
                     playBirthdaySong();
                 }, 400);
             });
 
-            // Evasive Button Game
             const treatyContainer = document.getElementById('treatyContainer');
             const noBtn = document.getElementById('noBtn');
             const yesBtn = document.getElementById('yesBtn');
@@ -801,7 +792,6 @@
                 }
             });
 
-            // Voucher Clipboard Copy
             claimVoucherBtn.addEventListener('click', () => {
                 const code = "PEACE-OFFERING-2026";
                 initAudio();
@@ -820,7 +810,6 @@
                 document.body.removeChild(tempInput);
             });
 
-            // Thermal Receipt Date Sync
             const receiptDateEl = document.getElementById('receiptDate');
             const now = new Date();
             receiptDateEl.textContent = `TIMESTAMP: ${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')} ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
