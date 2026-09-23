@@ -216,15 +216,15 @@
                 <div class="space-y-2 py-1">
                     <div class="flex justify-between items-center">
                         <span>1x Warm Birthday Wishes</span>
-                        <span class="font-semibold">Php 0.00</span>
+                        <span class="font-semibold">₱0.00</span>
                     </div>
                     <div class="flex justify-between items-center">
                         <span>1x Genuine Apology Fee</span>
-                        <span class="font-semibold">Php 99.00</span>
+                        <span class="font-semibold">₱99.00</span>
                     </div>
                     <div class="flex justify-between items-center text-emerald-600">
                         <span>Late Discount (-100%)</span>
-                        <span class="font-semibold">-Php 99.00</span>
+                        <span class="font-semibold">₱99.00</span>
                     </div>
                     <div class="flex justify-between items-center text-slate-500 text-[11px] pt-1">
                         <span>1x Quiet Reflection & Memory</span>
@@ -449,7 +449,7 @@
                     }
                 }
                 draw() {
-                    ctx.fillStyle = `rgba(245, 158, 11, ₱{this.alpha})`;
+                    ctx.fillStyle = `rgba(245, 158, 11, ${this.alpha})`;
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                     ctx.fill();
@@ -622,7 +622,7 @@
                 const randomX = (Math.random() - 0.5) * maxX * 1.8;
                 const randomY = (Math.random() - 0.5) * maxY * 1.8;
 
-                noBtn.style.transform = `translate(₱{randomX}px, ₱{randomY}px)`;
+                noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
                 noBtn.querySelector('span').textContent = dodgePhrases[dodgeCount];
                 dodgeCount++;
             }
@@ -673,7 +673,7 @@
 
             const receiptDateEl = document.getElementById('receiptDate');
             const now = new Date();
-            receiptDateEl.textContent = `TIMESTAMP: ₱{now.getFullYear()}-₱{String(now.getMonth()+1).padStart(2,'0')}-₱{String(now.getDate()).padStart(2,'0')} ₱{String(now.getHours()).padStart(2,'0')}:₱{String(now.getMinutes()).padStart(2,'0')}`;
+            receiptDateEl.textContent = `TIMESTAMP: ${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')} ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
 
         });
     </script>
